@@ -1,6 +1,6 @@
 class TodosController < ApplicationController
 
-  before_action :set_variable, only: [:show]
+  before_action :set_variable, only: [:show, :edit, :update]
 
 
   def new
@@ -8,6 +8,17 @@ class TodosController < ApplicationController
   end
 
   def show
+  end
+
+  def edit
+  end
+
+  def update
+    if @todo.update(todo_params)
+      flash[:notice] = "Todo successfully updated"
+    else
+      render "edit"
+    end
   end
 
   def create
