@@ -9,9 +9,9 @@
     <td><%= @todo.name %></td>
     <td>|</td>
     <td><%= @todo.description %></td>
+    <td><%= link_to("Edit", edit_todo_path(@todo)) %></td>
   </tr>
 
 </table>
-
-<%= link_to("Edit", edit_todo_path(@todo)) %>
-<%= link_to("Todos", todos_path) %>
+<%= link_to("Create a new Todo", new_todo_path) %> |
+<%= link_to("View all Todos", todos_path) %>
