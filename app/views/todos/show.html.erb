@@ -1,0 +1,16 @@
+<h1>Todo</h1>
+<table>
+  <tr>
+    <th>NAME</th>
+    <th>|</th>
+    <th>DESCRIPTION</th>
+  </tr>
+  <tr>
+    <td><%= @todo.name %></td>
+    <td>|</td>
+    <td><%= @todo.description %></td>
+  </tr>
+
+</table>
+
+<%= link_to("New Todo", new_todo_path) %>
