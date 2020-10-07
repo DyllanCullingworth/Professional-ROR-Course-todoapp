@@ -1,0 +1,26 @@
+<h1>Todos</h1>
+
+<%= link_to("New Todo", new_todo_path) %>
+
+<table>
+  <tr>
+    <th>NAME</th>
+    <th>|</th>
+    <th>DESCRIPTION</th>
+    <th>EDIT</th>
+    <th>SHOW</th>
+    <th>DESTROY</th>
+  </tr>
+<% @todos.each do |todo| %>
+  <tr>
+    <td><%= todo.name %></td>
+    <td>|</td>
+    <td><%= todo.description %></td>
+    <td><%= link_to("Edit", edit_todo_path(todo)) %></td>
+    <td><%= link_to("Show", todo_path(todo)) %></td>
+    <td><%= link_to("Delete", todo_path(todo), method: :delete) %></td>
+  </tr>
+<% end %>
+
+</table>
+

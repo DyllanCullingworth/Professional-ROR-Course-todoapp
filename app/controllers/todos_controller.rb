@@ -1,7 +1,10 @@
 class TodosController < ApplicationController
 
-  before_action :set_variable, only: [:show, :edit, :update]
+  before_action :set_variable, only: [:show, :edit, :update, :destroy]
 
+  def index
+    @todos = Todo.all
+  end
 
   def new
     @todo = Todo.new
@@ -16,6 +19,7 @@ class TodosController < ApplicationController
   def update
     if @todo.update(todo_params)
       flash[:notice] = "Todo successfully updated"
+      redirect_to todo_path(@todo)
     else
       render "edit"
     end
@@ -28,6 +32,13 @@ class TodosController < ApplicationController
       redirect_to todo_path(@todo)
     else
       render 'new'
+    end
+  end
+
+  def destroy
+    if @todo.destroy
+      flash[:notice] = "Todo successfully destroyed"
+      redirect_to "index"
     end
   end
 
